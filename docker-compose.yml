@@ -29,6 +29,9 @@ services:
     build:
       context: .
       dockerfile: ./Dockerfile
+    command: >
+      sh -c "python manage.py load_initial_data &&
+      python manage.py migrate"
     volumes:
       - media-root:/code/bakerydemo/media
     links:
